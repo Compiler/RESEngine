@@ -1,6 +1,6 @@
-CXX = g++
+CXX = g++_64
 C++_VERSION = c++17
-CXXFLAGS = -std=$(C++_VERSION) -Wall -w -g -static-libgcc -static-libstdc++
+CXXFLAGS = -std=$(C++_VERSION) -Wall -w -g -static-libgcc -static-libstdc++ -m64
 
 OUT_DIR = bin
 LAUNCHER_NAME = ResearchEngine
@@ -23,10 +23,10 @@ STBIMAGE_ROOT = extern/stbimage
 
 INC= -I $(SRC_DIR) -I $(GLFW_INC) -I $(STBIMAGE_ROOT) -I $(GLM_ROOT)
 LIBS = -L $(GLFW_LIB)
-LINKS = -lglfw3 -lgdi32 -lpthread
+LINKS = -lglfw3 #-lgdi32 -lpthread
 
 #========================OBJECTS========================#
-CORE_OBJS = $(OUT_DIR)/EngineCore.o
+CORE_OBJS = #$(OUT_DIR)/EngineCore.o
 OBJS = $(CORE_OBJS) $(ENGINE_CORE_OBJS) $(RENDERING_OBJS) $(STARTUP_OBJS) $(TOOLS_OBJS)
 
 
