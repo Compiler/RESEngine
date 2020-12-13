@@ -1,5 +1,5 @@
 CXX = g++_64
-C++_VERSION = c++17
+C++_VERSION = c++11
 CXXFLAGS = -std=$(C++_VERSION) -Wall -w -g -static-libgcc -static-libstdc++ -m64
 
 OUT_DIR = bin
@@ -21,12 +21,12 @@ GLM_ROOT = extern/glm/
 
 STBIMAGE_ROOT = extern/stbimage
 
-INC= -I $(SRC_DIR) -I $(GLFW_INC) -I $(STBIMAGE_ROOT) -I $(GLM_ROOT)
+INC= -I $(SRC_DIR) -I $(GLFW_INC) -I $(STBIMAGE_ROOT) -I $(GLM_ROOT) -I $(GLAD_INC)
 LIBS = -L $(GLFW_LIB)
 LINKS = -lglfw3 #-lgdi32 -lpthread
 
 #========================OBJECTS========================#
-CORE_OBJS = #$(OUT_DIR)/EngineCore.o
+CORE_OBJS = $(OUT_DIR)/EngineCore.o
 OBJS = $(CORE_OBJS) $(ENGINE_CORE_OBJS) $(RENDERING_OBJS) $(STARTUP_OBJS) $(TOOLS_OBJS)
 
 
@@ -34,11 +34,11 @@ ALL_SETTINGS = $(CXX) $(CXXFLAGS) $(LIBS) $(INC)
 
 
 main: $(ENTRY_POINT) $(OBJS)
-	$(ALL_SETTINGS) -DDEBUG_MODE -o $(OUT_DIR)/$(LAUNCHER_NAME) $^ $(LINKS)
+	$(ALL_SETTINGS) -DDEBUG_MODE -o $(OUT_DIR)/$(LAUNCHER_NAME) $^ $(GLAD_SRC)/glad.c $(LINKS)
 	./$(OUT_DIR)/$(LAUNCHER_NAME).exe
 	
 release: $(ENTRY_POINT) $(OBJS)
-	$(ALL_SETTINGS) -DRELEASE_MODE -o $(OUT_DIR)/$(LAUNCHER_NAME) $^ $(LINKS)
+	$(ALL_SETTINGS) -DRELEASE_MODE -o $(OUT_DIR)/$(LAUNCHER_NAME) $^ $(GLAD_SRC)/glad.c $(LINKS)
 	./$(OUT_DIR)/$(LAUNCHER_NAME).exe
 
 $(CORE_OBJS): $(OUT_DIR)/%.o: src/Cores/%.cpp
