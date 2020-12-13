@@ -5,20 +5,12 @@
 #include <Tools/Logging/FastLogger.h>
 #include <GLFW/glfw3.h>
 
-void function(){
-    printf("Hello world!");
-    
-}
-
 
 int main(){
-    function();
-    std::thread t(function);
-    t.join();
-    LOG("LOG Level");
-    DEBUG("DEBUG Level");
-    WARN("WARN Level");
-    ERROR("ERROR Level");
+    LOG("l Level");
+    DEBUG("d Level");
+    WARN("w Level");
+    ERROR("e Level");
 
     return 0;
 

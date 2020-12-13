@@ -1,6 +1,6 @@
 CXX = g++_64
 C++_VERSION = c++11
-CXXFLAGS = -std=$(C++_VERSION) -Wall -w -g -static-libgcc -static-libstdc++ -m64
+CXXFLAGS = -std=$(C++_VERSION) -Wall -w -m64# -static-libgcc -static-libstdc++
 
 OUT_DIR = bin
 LAUNCHER_NAME = ResearchEngine
@@ -30,16 +30,22 @@ CORE_OBJS = $(OUT_DIR)/EngineCore.o
 OBJS = $(CORE_OBJS) $(ENGINE_CORE_OBJS) $(RENDERING_OBJS) $(STARTUP_OBJS) $(TOOLS_OBJS)
 
 
-ALL_SETTINGS = $(CXX) $(CXXFLAGS) $(LIBS) $(INC) 
+ALL_SETTINGS = $(CXX) $(CXXFLAGS) $(LIBS) $(INC)  
+DEBUG_FLAGS = -DDEBUG_MODE -g -O5
+RELEASE_FLAGS = -DRELEASE_MODE -O3
+all: executable
 
 
-main: $(ENTRY_POINT) $(OBJS)
-	$(ALL_SETTINGS) -DDEBUG_MODE -o $(OUT_DIR)/$(LAUNCHER_NAME) $^ $(GLAD_SRC)/glad.c $(LINKS)
+debug: ALL_SETTINGS = $(CXX) $(CXXFLAGS) $(DEBUG_FLAGS) $(LIBS) $(INC)  
+debug: executable
+ 
+release: ALL_SETTINGS = $(CXX) $(CXXFLAGS) $(RELEASE_FLAGS) $(LIBS) $(INC)
+release: executable
+
+executable: $(ENTRY_POINT) $(OBJS)
+	$(ALL_SETTINGS) -o $(OUT_DIR)/$(LAUNCHER_NAME) $^ $(GLAD_SRC)/glad.c $(LINKS)
 	./$(OUT_DIR)/$(LAUNCHER_NAME).exe
 	
-release: $(ENTRY_POINT) $(OBJS)
-	$(ALL_SETTINGS) -DRELEASE_MODE -o $(OUT_DIR)/$(LAUNCHER_NAME) $^ $(GLAD_SRC)/glad.c $(LINKS)
-	./$(OUT_DIR)/$(LAUNCHER_NAME).exe
 
 $(CORE_OBJS): $(OUT_DIR)/%.o: src/Cores/%.cpp
 	$(ALL_SETTINGS) -c $< -o $@  
