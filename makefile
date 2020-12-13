@@ -45,11 +45,14 @@ release: executable
 linux: LINKS = -lglfw3 -ldl
 linux: executable
 linux: chmod 777 bin/*
+linux: run
 
 executable: $(ENTRY_POINT) $(OBJS)
 	$(ALL_SETTINGS) -o $(OUT_DIR)/$(LAUNCHER_NAME) $^ $(GLAD_SRC)/glad.c $(LINKS)
 	./$(OUT_DIR)/$(LAUNCHER_NAME).exe
-	
+
+run:
+	./$(OUT_DIR)/$(LAUNCHER_NAME).exe
 
 $(CORE_OBJS): $(OUT_DIR)/%.o: src/Cores/%.cpp
 	$(ALL_SETTINGS) -c $< -o $@  
