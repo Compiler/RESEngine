@@ -23,7 +23,7 @@ STBIMAGE_ROOT = extern/stbimage
 
 INC= -I $(SRC_DIR) -I $(GLFW_INC) -I $(STBIMAGE_ROOT) -I $(GLM_ROOT) -I $(GLAD_INC)
 LIBS = -L $(GLFW_LIB)
-LINKS = -lglfw3 #-lgdi32 -lpthread
+LINKS = -lglfw3
 
 #========================OBJECTS========================#
 CORE_OBJS = $(OUT_DIR)/EngineCore.o
@@ -41,6 +41,9 @@ debug: executable
  
 release: ALL_SETTINGS = $(CXX) $(CXXFLAGS) $(RELEASE_FLAGS) $(LIBS) $(INC)
 release: executable
+
+linux: LINKS = -lglfw3 -ldl
+linux: executable
 
 executable: $(ENTRY_POINT) $(OBJS)
 	$(ALL_SETTINGS) -o $(OUT_DIR)/$(LAUNCHER_NAME) $^ $(GLAD_SRC)/glad.c $(LINKS)
