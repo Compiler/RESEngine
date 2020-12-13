@@ -26,8 +26,10 @@ LIBS = -L $(GLFW_LIB)
 LINKS = -lglfw3
 
 #========================OBJECTS========================#
-CORE_OBJS = $(OUT_DIR)/EngineCore.o
-OBJS = $(CORE_OBJS) $(ENGINE_CORE_OBJS) $(RENDERING_OBJS) $(STARTUP_OBJS) $(TOOLS_OBJS)
+CORE_OBJS = $(OUT_DIR)/EngineCore.o 
+RENDERING_OBJS = $(OUT_DIR)/ShaderProgram.o $(OUT_DIR)/Window.o
+FILE_OBJS = $(OUT_DIR)/FileLoaderFactory.o
+OBJS = $(CORE_OBJS) $(ENGINE_CORE_OBJS) $(RENDERING_OBJS) $(FILE_OBJS) $(TOOLS_OBJS)
 
 
 ALL_SETTINGS = $(CXX) $(CXXFLAGS) $(LIBS) $(INC)  
@@ -55,6 +57,12 @@ run:
 	./$(OUT_DIR)/$(LAUNCHER_NAME).exe
 
 $(CORE_OBJS): $(OUT_DIR)/%.o: src/Cores/%.cpp
+	$(ALL_SETTINGS) -c $< -o $@  
+
+$(RENDERING_OBJS): $(OUT_DIR)/%.o: src/Rendering/%.cpp
+	$(ALL_SETTINGS) -c $< -o $@  
+
+$(FILE_OBJS): $(OUT_DIR)/%.o: src/Tools/Files/%.cpp
 	$(ALL_SETTINGS) -c $< -o $@  
 
 
