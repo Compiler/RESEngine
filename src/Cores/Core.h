@@ -6,7 +6,7 @@ namespace res{
         private:
 
         public:
-            explicit Core() = delete;
+            explicit Core() = default;
             virtual void onLoad() = 0;
             virtual void update() = 0;
             virtual void render() = 0;
