@@ -8,7 +8,9 @@ namespace res{
     }
     
     void EngineCore::update(){
-
+        #ifdef DEBUG_MODE
+           _window->setTitle(std::string("ENGINE - fps " + std::to_string((int)res::CUR_FPS) + " - ms " + std::to_string(res::DELTA_TIME)).c_str());
+        #endif
 
 
         glfwPollEvents();

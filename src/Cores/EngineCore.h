@@ -1,7 +1,9 @@
 #pragma once
+#include <res.h>
 #include <Cores/Core.h>
 #include <Rendering/Window.h>
 #include <Tools/Startup/StartupSystem.h>
+#include <string>
 namespace res{
 
     class EngineCore : public Core{
