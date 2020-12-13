@@ -1,4 +1,4 @@
-CXX = g++_64
+CXX = g++
 C++_VERSION = c++11
 CXXFLAGS = -std=$(C++_VERSION) -Wall -w -m64# -static-libgcc -static-libstdc++
 
