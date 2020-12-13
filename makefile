@@ -23,13 +23,14 @@ STBIMAGE_ROOT = extern/stbimage
 
 INC= -I $(SRC_DIR) -I $(GLFW_INC) -I $(STBIMAGE_ROOT) -I $(GLM_ROOT) -I $(GLAD_INC)
 LIBS = -L $(GLFW_LIB)
-LINKS = -lglfw3
+LINKS = -lglfw3 -lgdi32
 
 #========================OBJECTS========================#
 CORE_OBJS = $(OUT_DIR)/EngineCore.o 
+STARTUP_OBJS = $(OUT_DIR)/StartupSystem.o 
 RENDERING_OBJS = $(OUT_DIR)/ShaderProgram.o $(OUT_DIR)/Window.o
 FILE_OBJS = $(OUT_DIR)/FileLoaderFactory.o
-OBJS = $(CORE_OBJS) $(ENGINE_CORE_OBJS) $(RENDERING_OBJS) $(FILE_OBJS) $(TOOLS_OBJS)
+OBJS = $(CORE_OBJS) $(ENGINE_CORE_OBJS) $(RENDERING_OBJS) $(FILE_OBJS) $(STARTUP_OBJS)
 
 
 ALL_SETTINGS = $(CXX) $(CXXFLAGS) $(LIBS) $(INC)  
@@ -65,6 +66,7 @@ $(RENDERING_OBJS): $(OUT_DIR)/%.o: src/Rendering/%.cpp
 $(FILE_OBJS): $(OUT_DIR)/%.o: src/Tools/Files/%.cpp
 	$(ALL_SETTINGS) -c $< -o $@  
 
-
+$(STARTUP_OBJS): $(OUT_DIR)/%.o: src/Tools/Startup/%.cpp
+	$(ALL_SETTINGS) -c $< -o $@  
 
   
