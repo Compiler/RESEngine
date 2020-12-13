@@ -44,6 +44,7 @@ release: executable
 
 linux: LINKS = -lglfw3 -ldl
 linux: executable
+linux: chmod 777 bin/*
 
 executable: $(ENTRY_POINT) $(OBJS)
 	$(ALL_SETTINGS) -o $(OUT_DIR)/$(LAUNCHER_NAME) $^ $(GLAD_SRC)/glad.c $(LINKS)
