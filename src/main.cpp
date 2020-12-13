@@ -7,10 +7,11 @@
 
 
 int main(){
-    LOG("l Level");
-    DEBUG("d Level");
-    WARN("w Level");
-    ERROR("e Level");
+    INIT("INIT LEVEL");
+    LOG("LOG LEVEL");
+    UNLOAD("UNLOAD LEVEL");
+    WARN("WARN LEVEL");
+    ERROR("ERROR LEVEL");
 
     return 0;
 
