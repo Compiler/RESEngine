@@ -1,7 +1,7 @@
 #pragma once
-#include <res.h>
-#include <Rendering/Window.h>
-#include <Tools/Startup/StartupSystem.h>
+#include <Res/res.h>
+#include <Res/Rendering/Window.h>
+#include <Res/Tools/Startup/StartupSystem.h>
 #include <string>
 namespace res{
 

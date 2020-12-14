@@ -5,7 +5,7 @@ CXXFLAGS = -std=$(C++_VERSION) -Wall -w -m64# -static-libgcc -static-libstdc++
 OUT_DIR = bin
 LAUNCHER_NAME = ResearchEngine
 SRC_DIR = src
-ENTRY_POINT = src/main.cpp
+ENTRY_POINT = src/Res/main.cpp
 
 #Libs
 GLAD_ROOT = extern/glad/
@@ -57,16 +57,16 @@ executable: $(ENTRY_POINT) $(OBJS)
 run:
 	./$(OUT_DIR)/$(LAUNCHER_NAME).exe
 
-$(CORE_OBJS): $(OUT_DIR)/%.o: src/Cores/%.cpp
+$(CORE_OBJS): $(OUT_DIR)/%.o: src/Res/Cores/%.cpp
 	$(ALL_SETTINGS) -c $< -o $@  
 
-$(RENDERING_OBJS): $(OUT_DIR)/%.o: src/Rendering/%.cpp
+$(RENDERING_OBJS): $(OUT_DIR)/%.o: src/Res/Rendering/%.cpp
 	$(ALL_SETTINGS) -c $< -o $@  
 
-$(FILE_OBJS): $(OUT_DIR)/%.o: src/Tools/Files/%.cpp
+$(FILE_OBJS): $(OUT_DIR)/%.o: src/Res/Tools/Files/%.cpp
 	$(ALL_SETTINGS) -c $< -o $@  
 
-$(STARTUP_OBJS): $(OUT_DIR)/%.o: src/Tools/Startup/%.cpp
+$(STARTUP_OBJS): $(OUT_DIR)/%.o: src/Res/Tools/Startup/%.cpp
 	$(ALL_SETTINGS) -c $< -o $@  
 
   

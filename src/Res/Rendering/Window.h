@@ -1,5 +1,5 @@
 #pragma once
-#include <Tools/Logging/FastLogger.h>
+#include <Res/Tools/Logging/FastLogger.h>
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 

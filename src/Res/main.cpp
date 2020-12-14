@@ -1,5 +1,5 @@
-#include <res.h>
-#include <Cores/EngineCore.h>
+#include <Res/res.h>
+#include <Res/Cores/EngineCore.h>
 
 float  res::DELTA_TIME = 0.0f;
 int    res::CUR_FPS;

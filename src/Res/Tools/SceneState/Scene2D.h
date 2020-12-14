@@ -1,6 +1,6 @@
 #pragma once
 #include <res.h>
-#include <Res/Tools/SceneState/Scene.h>
+#include <Tools/SceneState/Scene.h>
 namespace res{
 
     class Scene2D : Scene{
