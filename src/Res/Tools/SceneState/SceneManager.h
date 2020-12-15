@@ -11,12 +11,16 @@ namespace res{
             int _currentScene;
         public:
             SceneManager();
+            void onLoad();
+            void update();
+            void render();
             Scene* emplaceScene();
             Scene* emplaceScene(const char* name);
             Scene& getCurrentScene();
             Scene& getScene(int index);
 
             void setCurrentScene(int sceneIndex);
+            const std::vector<Scene*>& getScenes(){return _scenes;}
 
 
     };

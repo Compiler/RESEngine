@@ -1,5 +1,5 @@
 #pragma once
-#include <Res/Tools/Logging/FastLogger.h>
+#include <Res/res.h>
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 
@@ -16,7 +16,7 @@ namespace res{
 
             Window() = default;
             Window(float width, float height, const char* name, bool fullscreen = false);
-
+            
             void setTitle(const char* title){glfwSetWindowTitle(_window, title);}
             GLFWwindow* getWindow()const{return _window;}
 

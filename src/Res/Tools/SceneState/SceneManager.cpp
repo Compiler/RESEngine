@@ -6,6 +6,18 @@ namespace res{
     SceneManager::SceneManager(){
         _currentScene = -1;
     }
+    void SceneManager::onLoad(){
+        _scenes[_currentScene]->onLoad();
+    }
+
+    void SceneManager::update(){
+        _scenes[_currentScene]->update();
+    }
+
+    void SceneManager::render(){
+        _scenes[_currentScene]->render();
+    }
+
     Scene* SceneManager::emplaceScene(){
         _scenes.emplace_back(new Scene3D());
         if(_scenes.size() == 1) _currentScene = 0;
@@ -23,6 +35,7 @@ namespace res{
 
     void SceneManager::setCurrentScene(int sceneIndex){
         if(sceneIndex < _scenes.size() && sceneIndex >= 0){
+            LOG("Swapped from '%s' to '%s'", _scenes[_currentScene]->getName(), _scenes[sceneIndex]->getName());
             _currentScene = sceneIndex;
         }else{
             WARN("Scene not set: %d out of bounds", sceneIndex);
