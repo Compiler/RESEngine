@@ -27,7 +27,7 @@ LINKS = -lglfw3 -lgdi32
 
 #========================OBJECTS========================#
 CORE_OBJS = $(OUT_DIR)/EngineCore.o 
-SCENESTATE_OBJS = $(OUT_DIR)/Layer.o $(OUT_DIR)/LayerManager.o $(OUT_DIR)/Scene3D.o 
+SCENESTATE_OBJS = $(OUT_DIR)/Layer.o $(OUT_DIR)/LayerManager.o $(OUT_DIR)/Scene3D.o $(OUT_DIR)/SceneManager.o 
 STARTUP_OBJS = $(OUT_DIR)/StartupSystem.o 
 RENDERING_OBJS = $(OUT_DIR)/ShaderProgram.o $(OUT_DIR)/Window.o
 FILE_OBJS = $(OUT_DIR)/FileLoaderFactory.o

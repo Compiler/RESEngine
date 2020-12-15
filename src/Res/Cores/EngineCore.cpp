@@ -4,14 +4,20 @@ namespace res{
         res::StartupSystem::_initGLFW();
         _window = new res::Window(1920, 1080, "Research Engine");
         res::StartupSystem::_initGlad();
-        _debugScene.onLoad();
 
-        auto layer = _debugScene.getLayerManager().emplaceLayer("First");
-        LOG("Name: %s",  _debugScene.getLayerManager().getCurrentLayer().getName());
-        _debugScene.getLayerManager().emplaceLayer("Third");
-        LOG("Name: %s",  _debugScene.getLayerManager().getCurrentLayer().getName());
-        _debugScene.getLayerManager().setCurrentLayer(1);
-        LOG("Name: %s",  _debugScene.getLayerManager().getCurrentLayer().getName());
+        auto scene = _sceneManager.emplaceScene("Scene1");
+        scene->getLayerManager().emplaceLayer("S1L1");
+        scene->getLayerManager().emplaceLayer("S1L2");
+        auto scene2 = _sceneManager.emplaceScene("Scene2");
+        scene2->getLayerManager().emplaceLayer("S2L1");
+        scene2->getLayerManager().emplaceLayer("S2L2");
+        LOG("Scene : '%s'", _sceneManager.getCurrentScene().getName());
+        LOG("\tLayer: '%s'", _sceneManager.getCurrentScene().getLayerManager().getCurrentLayer());
+        LOG("\tLayer: '%s'", _sceneManager.getCurrentScene().getLayerManager().getLayer(1));
+
+        LOG("Scene : '%s'", _sceneManager.getScene(1).getName());
+        LOG("\tLayer: '%s'", _sceneManager.getScene(1).getLayerManager().getCurrentLayer());
+        LOG("\tLayer: '%s'", _sceneManager.getScene(1).getLayerManager().getLayer(1));
         
 
         

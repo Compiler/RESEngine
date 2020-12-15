@@ -4,7 +4,7 @@ namespace res{
 
 
     LayerManager::LayerManager(){
-
+        _currentLayer = -1;
     }
     Layer* LayerManager::emplaceLayer(){
         _layers.emplace_back(Layer());
@@ -35,6 +35,14 @@ namespace res{
         }
         return _layers[_currentLayer];
      }
+
+    Layer& LayerManager::getLayer(int index){
+        if(index < 0 && index >= _layers.size()){
+            ERROR("getLayer failed, '%d' out of bounds", index);
+        }
+        return _layers[index];
+    }
+
 
 
 }
