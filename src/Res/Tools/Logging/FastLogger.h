@@ -2,7 +2,9 @@
 #if __INTELLISENSE__
 #pragma diag_suppress 2486
 #endif
+
 #include<stdio.h>
+#ifdef DEBUG_BUILD
 #define __FILENAME__ (strrchr(__FILE__, '/') ? strrchr(__FILE__, '/') + 1 : __FILE__)
 #define ANSI_COLOR_RED          "\x1b[31m"
 #define ANSI_COLOR_BOLD_RED     "\x1b[1;31m"
@@ -26,3 +28,4 @@
 #define WARN(...) printf(ANSI_COLOR_BOLD_YELLOW "WARN::" __FILE__ "::" STR(__LINE__) "\t" ANSI_COLOR_RESET ANSI_COLOR_YELLOW __VA_ARGS__); printf(ANSI_COLOR_RESET "\n")
 #define INIT_LOG(...) printf(ANSI_COLOR_BOLD_GREEN "INIT::" __FILE__ "::" STR(__LINE__) "\t" ANSI_COLOR_RESET ANSI_COLOR_GREEN __VA_ARGS__); printf(ANSI_COLOR_RESET "\n")
 #define UNLOAD_LOG(...) printf(ANSI_COLOR_BOLD_MAGENTA "UNLOAD::" __FILE__ "::" STR(__LINE__) "\t" ANSI_COLOR_RESET ANSI_COLOR_MAGENTA __VA_ARGS__); printf(ANSI_COLOR_RESET "\n")
+#endif

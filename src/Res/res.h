@@ -1,5 +1,8 @@
 #pragma once
 #include <stdint.h>
+#ifdef DEBUG_BUILD
+#include <Res/Tools/Logging/FastLogger.h>
+#endif
 namespace res{
     extern float  DELTA_TIME;
     extern int    CUR_FPS;
