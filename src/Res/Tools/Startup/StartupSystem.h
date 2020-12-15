@@ -3,9 +3,9 @@
 #include <GLFW/glfw3.h>
 #include <stdio.h>
 #include <Res/Tools/Logging/FastLogger.h>
-// #include <imgui/imgui.h>
-// #include <imgui/imgui_impl_opengl3.h>
-// #include <imgui/imgui_impl_glfw.h>
+#include <imgui/imgui.h>
+#include <imgui/imgui_impl_opengl3.h>
+#include <imgui/imgui_impl_glfw.h>
 namespace res{
     //static class
     class StartupSystem{

@@ -1,6 +1,5 @@
 #pragma once
 #include <Res/res.h>
-#include <glad/glad.h>
 #include <GLFW/glfw3.h>
 
 namespace res{
@@ -18,6 +17,7 @@ namespace res{
             Window(float width, float height, const char* name, bool fullscreen = false);
             
             void setTitle(const char* title){glfwSetWindowTitle(_window, title);}
+            void setPosition(float x, float y);
             GLFWwindow* getWindow()const{return _window;}
 
     };

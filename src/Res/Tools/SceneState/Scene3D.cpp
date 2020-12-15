@@ -13,7 +13,8 @@ namespace res{
     }
 
     void Scene3D::render(){
-
+        glClearColor(m_clearColor.r, m_clearColor.g, m_clearColor.b, m_clearColor.a);
+        glClear(GL_COLOR_BUFFER_BIT);
     }
 
     void Scene3D::onUnload(){

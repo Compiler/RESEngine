@@ -15,6 +15,10 @@ namespace res{
 	     }
 
     }
+    void Window::setPosition(float x, float y){
+		glfwSetWindowPos(_window, x, y);
+
+    }
 
 
 }

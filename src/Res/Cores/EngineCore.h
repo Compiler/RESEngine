@@ -1,13 +1,13 @@
 #pragma once
 #include <Res/res.h>
+#include <glad/glad.h>
 #include <Res/Rendering/Window.h>
 #include <Res/Tools/Startup/StartupSystem.h>
 #include <string>
 #include <Res/Tools/SceneState/Scene3D.h>
 #include <Res/Tools/SceneState/SceneManager.h>
 #include <imgui/imgui.h>
-#include <imgui/imgui_impl_glfw.h>
-#include <imgui/imgui_impl_opengl3.h>
+
 namespace res{
 
     class EngineCore{
