@@ -7,7 +7,7 @@ namespace res{
     class LayerManager{
         private:
             std::vector<Layer> _layers;
-            Layer* _currentLayer;
+            int _currentLayer = -1;
 
         public:
             LayerManager();

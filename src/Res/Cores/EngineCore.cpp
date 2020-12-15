@@ -6,12 +6,13 @@ namespace res{
         res::StartupSystem::_initGlad();
         _debugScene.onLoad();
 
-        _debugScene.getLayerManager().emplaceLayer("First");
-        LOG("Name: %s", _debugScene.getLayerManager().getCurrentLayer().getName());
-        _debugScene.getLayerManager().emplaceLayer("Second");
-        LOG("Name: %s", _debugScene.getLayerManager().getCurrentLayer().getName());
+        auto layer = _debugScene.getLayerManager().emplaceLayer("First");
+        LOG("Name: %s",  _debugScene.getLayerManager().getCurrentLayer().getName());
+        _debugScene.getLayerManager().emplaceLayer("Third");
+        LOG("Name: %s",  _debugScene.getLayerManager().getCurrentLayer().getName());
         _debugScene.getLayerManager().setCurrentLayer(1);
-        LOG("Name: %s", _debugScene.getLayerManager().getCurrentLayer().getName());
+        LOG("Name: %s",  _debugScene.getLayerManager().getCurrentLayer().getName());
+        
 
         
 

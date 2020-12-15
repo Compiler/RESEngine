@@ -1,11 +1,11 @@
 #pragma once
 #include <Res/res.h>
-
+#include <string>
 namespace res{
 
     class Layer{
         private:
-            const char* _name;
+            const char* _name = "DefaultName";
             static uint32_t _LAYER_COUNT;
         public:
             Layer();

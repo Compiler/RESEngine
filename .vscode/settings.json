@@ -2,6 +2,7 @@
     "files.associations": {
         "xstring": "cpp",
         "thread": "cpp",
-        "atomic": "cpp"
+        "atomic": "cpp",
+        "vector": "cpp"
     }
 }
