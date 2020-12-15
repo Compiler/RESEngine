@@ -3,11 +3,14 @@
 #include <Res/Rendering/Window.h>
 #include <Res/Tools/Startup/StartupSystem.h>
 #include <string>
+#include <Res/Tools/SceneState/Scene3D.h>
 namespace res{
 
     class EngineCore{
         private:
             res::Window* _window;
+            Scene3D _debugScene;
+
 
         public:
             explicit EngineCore() = default;

@@ -7,11 +7,15 @@ namespace res{
     class LayerManager{
         private:
             std::vector<Layer> _layers;
+            Layer* _currentLayer;
 
         public:
             LayerManager();
             Layer* emplaceLayer();
             Layer* emplaceLayer(const char* name);
+            Layer& getCurrentLayer();
+
+            void setCurrentLayer(int layerIndex);
         
 
 

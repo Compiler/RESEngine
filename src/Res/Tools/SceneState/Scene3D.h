@@ -4,10 +4,8 @@
 namespace res{
 
     class Scene3D : public Scene{
-        private:
-            
-
         public:
+            Scene3D();
             virtual void onLoad() override;
             virtual void update() override;
             virtual void render() override;

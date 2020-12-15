@@ -9,11 +9,12 @@ namespace res{
             LayerManager _layerManager;
 
         public:
+            Scene(){}
             virtual void onLoad() = 0;
             virtual void update() = 0;
             virtual void render() = 0;
             virtual void onUnload() = 0;
-            LayerManger& getLayerManager(){return _layerManager;}
+            LayerManager& getLayerManager(){return _layerManager;}
 
     };
 

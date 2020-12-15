@@ -2,19 +2,21 @@
 
 namespace res{
 
-    void onLoad(){
-        
-    }
+    Scene3D::Scene3D(){}
 
-    void update(){
+    void Scene3D::onLoad(){
 
     }
 
-    void render(){
+    void Scene3D::update(){
 
     }
 
-    void onUnload(){
+    void Scene3D::render(){
+
+    }
+
+    void Scene3D::onUnload(){
 
     }
 

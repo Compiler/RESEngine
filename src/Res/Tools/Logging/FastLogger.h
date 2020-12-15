@@ -2,7 +2,7 @@
 #if __INTELLISENSE__
 #pragma diag_suppress 2486
 #endif
-
+#define DEBUG_MODE
 #include<stdio.h>
 #ifdef DEBUG_MODE
 #define __FILENAME__ (strrchr(__FILE__, '/') ? strrchr(__FILE__, '/') + 1 : __FILE__)
