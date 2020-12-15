@@ -5,7 +5,7 @@ namespace res{
 
     class Layer{
         private:
-            const char* _name = "DEFAULT_NAMED_LAYER";
+            const char* _name;
             static uint32_t _LAYER_COUNT;
         public:
             Layer();

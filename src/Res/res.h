@@ -1,4 +1,5 @@
 #pragma once
+#define DEBUG_BUILD
 #include <stdint.h>
 #ifdef DEBUG_BUILD
 #include <Res/Tools/Logging/FastLogger.h>

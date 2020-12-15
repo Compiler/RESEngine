@@ -4,7 +4,7 @@
 #endif
 
 #include<stdio.h>
-#ifdef DEBUG_BUILD
+#ifdef DEBUG_MODE
 #define __FILENAME__ (strrchr(__FILE__, '/') ? strrchr(__FILE__, '/') + 1 : __FILE__)
 #define ANSI_COLOR_RED          "\x1b[31m"
 #define ANSI_COLOR_BOLD_RED     "\x1b[1;31m"
