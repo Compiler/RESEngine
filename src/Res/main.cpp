@@ -25,11 +25,11 @@ int main(){
     while(!core.shouldClose()){
         double time = glfwGetTime();
         double deltaTime = time - lastTime;
-        res::DELTA_TIME = deltaTime;
         elapsed += deltaTime;
         actualFPS = 1 / deltaTime; // delta should never = 0 but if it could we do : (deltaTime == 0 ? 0.0000001 : deltaTime);
         if(elapsed > 1){
             res::CUR_FPS = actualFPS;
+            res::DELTA_TIME = deltaTime;
             elapsed = 0;
         }
         if( deltaTime >= 1.0/res::MAX_FPS ) {

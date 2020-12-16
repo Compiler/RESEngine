@@ -1,4 +1,5 @@
 #include "EngineCore.h"
+#include <iostream>
 
 namespace res{
     void EngineCore::onLoad(){
@@ -8,6 +9,7 @@ namespace res{
         res::StartupSystem::_initImGUI(_window->getWindow());
 		_window->setPosition(2560, 360);
 		glfwMakeContextCurrent( _window->getWindow() );
+
 
         auto scene = _sceneManager.emplaceScene<Scene3D>("Blinn-Phong");
         scene->getLayerManager().emplaceLayer<DebugLayer>("S1L1");

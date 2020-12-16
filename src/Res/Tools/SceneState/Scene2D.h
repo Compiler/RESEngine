@@ -1,5 +1,5 @@
 #pragma once
-#include <res.h>
+#include <Res/res.h>
 #include <Res/Tools/SceneState/Scene.h>
 
 namespace res{
@@ -9,6 +9,7 @@ namespace res{
         
 
         public:
+            Scene2D();
             virtual void onLoad() override;
             virtual void update() override;
             virtual void render() override;
