@@ -6,22 +6,23 @@ namespace res{
     LayerManager::LayerManager(){
         _currentLayer = -1;
     }
-    Layer* LayerManager::emplaceLayer(){
-        _layers.emplace_back(Layer());
-        if(_layers.size() == 1) _currentLayer = 0;
-        return &_layers.back();
-    }
-    
-    Layer* LayerManager::emplaceLayer(const char* name){
-        _layers.emplace_back(Layer(name));
-        if(_layers.size() == 1){
-            _currentLayer = 0;
-        }
-        return &_layers.back();
+    void LayerManager::onLoad(){
+        _layers[_currentLayer]->onLoad();
     }
 
+    void LayerManager::update(){
+        _layers[_currentLayer]->update();
+    }
+
+    void LayerManager::render(){
+        _layers[_currentLayer]->render();
+    }
+
+
     void LayerManager::setCurrentLayer(int layerIndex){
+        if(layerIndex == _currentLayer) return;
         if(layerIndex < _layers.size() && layerIndex >= 0){
+            LOG("Swapped from '%s' to '%s'", _layers[_currentLayer]->getName(), _layers[layerIndex]->getName());
             _currentLayer = layerIndex;
         }else{
             WARN("Layer not set: %d out of bounds", layerIndex);
@@ -29,20 +30,19 @@ namespace res{
 
     }
 
-     Layer& LayerManager::getCurrentLayer(){
+    Layer& LayerManager::getCurrentLayer(){
         if(_currentLayer == -1){
             ERROR("Requested currentLayer but it isnt set");
         }
-        return _layers[_currentLayer];
+        return *_layers[_currentLayer];
      }
 
     Layer& LayerManager::getLayer(int index){
         if(index < 0 && index >= _layers.size()){
-            ERROR("getLayer failed, '%d' out of bounds", index);
+            ERROR("getIndex failed, '%d' out of bounds", index);
         }
-        return _layers[index];
+        return *_layers[index];
     }
-
 
 
 }

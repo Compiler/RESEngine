@@ -18,22 +18,9 @@ namespace res{
         _scenes[_currentScene]->render();
     }
 
-    Scene* SceneManager::emplaceScene(){
-        _scenes.emplace_back(new Scene3D());
-        if(_scenes.size() == 1) _currentScene = 0;
-        return _scenes.back();
-    }
-    
-    Scene* SceneManager::emplaceScene(const char* name){
-        _scenes.emplace_back(new Scene3D());
-        _scenes.back()->setName(name);
-        if(_scenes.size() == 1){
-            _currentScene = 0;
-        }
-        return _scenes.back();
-    }
 
     void SceneManager::setCurrentScene(int sceneIndex){
+        if(sceneIndex == _currentScene) return;
         if(sceneIndex < _scenes.size() && sceneIndex >= 0){
             LOG("Swapped from '%s' to '%s'", _scenes[_currentScene]->getName(), _scenes[sceneIndex]->getName());
             _currentScene = sceneIndex;
@@ -50,7 +37,6 @@ namespace res{
         return *_scenes[_currentScene];
      }
 
-            Scene& getScene();
     Scene& SceneManager::getScene(int index){
         if(index < 0 && index >= _scenes.size()){
             ERROR("getIndex failed, '%d' out of bounds", index);

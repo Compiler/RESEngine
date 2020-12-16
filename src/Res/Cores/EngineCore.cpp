@@ -9,11 +9,11 @@ namespace res{
 		_window->setPosition(2560, 360);
 		glfwMakeContextCurrent( _window->getWindow() );
 
-        auto scene = _sceneManager.emplaceScene("Blinn-Phong");
-        scene->getLayerManager().emplaceLayer("S1L1");
+        auto scene = _sceneManager.emplaceScene<Scene3D>("Blinn-Phong");
+        scene->getLayerManager().emplaceLayer<DebugLayer>("S1L1");
         scene->setClearColor(1,0,0,1);
-        auto scene2 = _sceneManager.emplaceScene("Ray tracing");
-        scene2->getLayerManager().emplaceLayer("S2L1");
+        auto scene2 = _sceneManager.emplaceScene<Scene3D>("Ray tracing");
+        scene2->getLayerManager().emplaceLayer<Layer>("S2L1");
         scene2->setClearColor(1,1,0,1);
         
         _sceneManager.onLoad();

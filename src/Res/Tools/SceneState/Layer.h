@@ -4,14 +4,18 @@
 namespace res{
 
     class Layer{
-        private:
-            const char* _name = "DefaultName";
-            static uint32_t _LAYER_COUNT;
+        protected:
+            const char* m_name;
+            static uint32_t m_LAYER_COUNT;
         public:
             Layer();
             Layer(const char* name);
+            virtual void onLoad(){};
+            virtual void update(){};
+            virtual void render(){};
+            virtual void onUnload(){};
             void setName(const char* name);
-            inline const char* getName(){return _name;}
+            inline const char* getName(){return m_name;}
     };
 
 }

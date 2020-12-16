@@ -32,9 +32,9 @@ LIBS = -L $(GLFW_LIB)
 LINKS = -lglfw3 -lgdi32 -lopengl32 -lgdi32
 
 #========================OBJECTS========================#
-IMGUI_OBJS = $(OUT_DIR)/imgui_impl_glfw.o $(OUT_DIR)/imgui_impl_opengl3.o $(OUT_DIR)/imgui.o $(OUT_DIR)/imgui_demo.o $(OUT_DIR)/imgui_draw.o $(OUT_DIR)/imgui_widgets.o 
+IMGUI_OBJS = $(OUT_DIR)/imgui-bin/imgui_impl_glfw.o $(OUT_DIR)/imgui-bin/imgui_impl_opengl3.o $(OUT_DIR)/imgui-bin/imgui.o $(OUT_DIR)/imgui-bin/imgui_demo.o $(OUT_DIR)/imgui-bin/imgui_draw.o $(OUT_DIR)/imgui-bin/imgui_widgets.o 
 CORE_OBJS = $(OUT_DIR)/EngineCore.o 
-SCENESTATE_OBJS = $(OUT_DIR)/Layer.o $(OUT_DIR)/LayerManager.o $(OUT_DIR)/Scene3D.o $(OUT_DIR)/SceneManager.o 
+SCENESTATE_OBJS = $(OUT_DIR)/Layer.o $(OUT_DIR)/LayerManager.o $(OUT_DIR)/Scene3D.o $(OUT_DIR)/SceneManager.o $(OUT_DIR)/DebugLayer.o 
 STARTUP_OBJS = $(OUT_DIR)/StartupSystem.o 
 RENDERING_OBJS = $(OUT_DIR)/ShaderProgram.o $(OUT_DIR)/Window.o
 FILE_OBJS = $(OUT_DIR)/FileLoaderFactory.o
@@ -47,7 +47,7 @@ RELEASE_FLAGS = -DRELEASE_MODE -O3
 all: debug
 
 
-debug: ALL_SETTINGS = $(CXX) $(CXXFLAGS) $(DEBUG_FLAGS) $(LIBS) $(INC)  
+debug: ALL_SETTINGS = $(CXX) $(CXXFLAGS) -DGLFW_INCLUDE_NONE $(DEBUG_FLAGS) $(LIBS) $(INC)  
 debug: executable
  
 release: ALL_SETTINGS = $(CXX) $(CXXFLAGS) $(RELEASE_FLAGS) $(LIBS) $(INC)
@@ -80,7 +80,7 @@ $(STARTUP_OBJS): $(OUT_DIR)/%.o: src/Res/Tools/Startup/%.cpp
 $(SCENESTATE_OBJS): $(OUT_DIR)/%.o: src/Res/Tools/SceneState/%.cpp
 	$(ALL_SETTINGS) -c $< -o $@  
 
-$(IMGUI_OBJS): $(OUT_DIR)/%.o: extern/imgui/imgui/%.cpp
+$(IMGUI_OBJS): $(OUT_DIR)/imgui-bin/%.o: extern/imgui/imgui/%.cpp
 	$(ALL_SETTINGS) -c $< -o $@  
 
   

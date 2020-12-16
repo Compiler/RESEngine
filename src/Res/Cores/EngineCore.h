@@ -1,10 +1,11 @@
 #pragma once
-#include <Res/res.h>
 #include <glad/glad.h>
+#include <Res/res.h>
 #include <Res/Rendering/Window.h>
 #include <Res/Tools/Startup/StartupSystem.h>
 #include <string>
 #include <Res/Tools/SceneState/Scene3D.h>
+#include <Res/Tools/SceneState/DebugLayer.h>
 #include <Res/Tools/SceneState/SceneManager.h>
 #include <imgui/imgui.h>
 

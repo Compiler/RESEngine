@@ -16,6 +16,10 @@ namespace res{
                 m_name = "DEFAULT_SCENE";
                 m_clearColor = glm::vec4(0.45f, 0.55f, 0.60f, 1.00f);
             }
+            Scene(const char* name){
+                m_name = name;
+                m_clearColor = glm::vec4(0.45f, 0.55f, 0.60f, 1.00f);
+            }
             virtual void onLoad() = 0;
             virtual void update() = 0;
             virtual void render() = 0;

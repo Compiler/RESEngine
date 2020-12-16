@@ -14,8 +14,20 @@ namespace res{
             void onLoad();
             void update();
             void render();
-            Scene* emplaceScene();
-            Scene* emplaceScene(const char* name);
+            template<typename T>
+            T* emplaceScene(){
+                _scenes.emplace_back(new T());
+                if(_scenes.size() == 1) _currentScene = 0;
+                return _scenes.back();
+            }
+
+            template<typename T>
+            T* emplaceScene(const char* name){
+                _scenes.emplace_back(new T());
+                _scenes.back()->setName(name);
+                if(_scenes.size() == 1) _currentScene = 0;
+                return (T*)_scenes.back();
+            }
             Scene& getCurrentScene();
             Scene& getScene(int index);
 

@@ -1,11 +1,13 @@
 #pragma once
 
+#include <Res/res.h>
 #include <Res/Tools/Files/FileLoaderFactory.h>
-#include <glad/glad.h>
 #include <stdint.h>
 #include <string>
 #include <cassert>
 #include <Res/Tools/Logging/FastLogger.h>
+#include <glad/glad.h>
+#include <GLFW/glfw3.h>
 #define SHADER_TYPE_VERTEX      (int) 0x8B31
 #define SHADER_TYPE_FRAGMENT    (int) 0x8B30
 #define SHADER_TYPE_GEOMETRY    (int) 0x8DD9
