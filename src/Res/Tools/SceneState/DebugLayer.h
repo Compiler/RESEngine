@@ -8,6 +8,7 @@ namespace res{
     class DebugLayer : public Layer{
         private:
             ShaderProgram _shader;
+            uint32_t _bufferID, _vertexArrayID;
         public:
             DebugLayer();
             virtual void onLoad() override;

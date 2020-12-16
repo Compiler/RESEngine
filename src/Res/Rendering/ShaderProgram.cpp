@@ -48,7 +48,7 @@ namespace res{
 			glGetProgramiv(_shaderProgram, GL_LINK_STATUS, &success);
 			if(!success) {
 				glGetProgramInfoLog(_shaderProgram, 512, NULL, infoLog);
-				ERROR("ERROR::SHADER::COMP::COMPILATION_FAILED\t%s", infoLog);
+				ERROR("ERROR::SHADER::COMP::LINKING_FAILED\t%s", infoLog);
 				assert(false);
 			}
 		}
