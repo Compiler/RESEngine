@@ -10,7 +10,8 @@ float  res::SCREEN_LEFT;
 float  res::SCREEN_RIGHT;
 float  res::SCREEN_BOTTOM;
 float  res::SCREEN_TOP;
-double res::MAX_FPS = 144.0;
+//double res::MAX_FPS = 144.0;
+double res::MAX_FPS = 99999999.0;
 
 int main(){
     
@@ -19,11 +20,18 @@ int main(){
     core.onLoad();
 
     double lastTime = glfwGetTime();
+    float elapsed = 0.0f;
+    int actualFPS = 0;
     while(!core.shouldClose()){
         double time = glfwGetTime();
         double deltaTime = time - lastTime;
         res::DELTA_TIME = deltaTime;
-        res::CUR_FPS = 1 / deltaTime; // delta should never = 0 but if it could we do : (deltaTime == 0 ? 0.0000001 : deltaTime);
+        elapsed += deltaTime;
+        actualFPS = 1 / deltaTime; // delta should never = 0 but if it could we do : (deltaTime == 0 ? 0.0000001 : deltaTime);
+        if(elapsed > 1){
+            res::CUR_FPS = actualFPS;
+            elapsed = 0;
+        }
         if( deltaTime >= 1.0/res::MAX_FPS ) {
             lastTime = time;
             core.update();
