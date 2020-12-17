@@ -6,6 +6,7 @@
 #include <string>
 #include <Res/Tools/SceneState/Scene3D.h>
 #include <Res/Tools/SceneState/DebugLayer.h>
+#include <Res/Tools/SceneState/BlinnPhongLayer.h>
 #include <Res/Tools/SceneState/SceneManager.h>
 #include <imgui/imgui.h>
 

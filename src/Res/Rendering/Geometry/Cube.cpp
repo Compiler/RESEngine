@@ -55,4 +55,60 @@ namespace res{
     }
 
 
+    float* Cube::getTriangles(){
+        float triangles[4*6*6] = {
+            //front face
+            _vertices[BOTTOM_FRONT_LEFT].x, _vertices[BOTTOM_FRONT_LEFT].y, _vertices[BOTTOM_FRONT_LEFT].z, _vertices[BOTTOM_FRONT_LEFT].w,
+            _vertices[TOP_FRONT_LEFT].x, _vertices[TOP_FRONT_LEFT].y, _vertices[TOP_FRONT_LEFT].z, _vertices[TOP_FRONT_LEFT].w,                 
+            _vertices[TOP_FRONT_RIGHT].x, _vertices[TOP_FRONT_RIGHT].y, _vertices[TOP_FRONT_RIGHT].z, _vertices[TOP_FRONT_RIGHT].w,             
+            _vertices[BOTTOM_FRONT_LEFT].x, _vertices[BOTTOM_FRONT_LEFT].y, _vertices[BOTTOM_FRONT_LEFT].z, _vertices[BOTTOM_FRONT_LEFT].w,      
+            _vertices[BOTTOM_FRONT_RIGHT].x, _vertices[BOTTOM_FRONT_RIGHT].y, _vertices[BOTTOM_FRONT_RIGHT].z, _vertices[BOTTOM_FRONT_RIGHT].w,                 
+            _vertices[TOP_FRONT_RIGHT].x, _vertices[TOP_FRONT_RIGHT].y, _vertices[TOP_FRONT_RIGHT].z, _vertices[TOP_FRONT_RIGHT].w,
+
+            //left face
+            _vertices[BOTTOM_FRONT_LEFT].x, _vertices[BOTTOM_FRONT_LEFT].y, _vertices[BOTTOM_FRONT_LEFT].z, _vertices[BOTTOM_FRONT_LEFT].w,
+            _vertices[TOP_FRONT_LEFT].x, _vertices[TOP_FRONT_LEFT].y, _vertices[TOP_FRONT_LEFT].z, _vertices[TOP_FRONT_LEFT].w,                 
+            _vertices[TOP_BACK_LEFT].x, _vertices[TOP_BACK_LEFT].y, _vertices[TOP_BACK_LEFT].z, _vertices[TOP_BACK_LEFT].w, 
+            _vertices[BOTTOM_FRONT_LEFT].x, _vertices[BOTTOM_FRONT_LEFT].y, _vertices[BOTTOM_FRONT_LEFT].z, _vertices[BOTTOM_FRONT_LEFT].w,
+            _vertices[BOTTOM_BACK_LEFT].x, _vertices[BOTTOM_BACK_LEFT].y, _vertices[BOTTOM_BACK_LEFT].z, _vertices[BOTTOM_BACK_LEFT].w,                 
+            _vertices[TOP_BACK_LEFT].x, _vertices[TOP_BACK_LEFT].y, _vertices[TOP_BACK_LEFT].z, _vertices[TOP_BACK_LEFT].w,
+
+            //right face
+            _vertices[BOTTOM_FRONT_RIGHT].x, _vertices[BOTTOM_FRONT_RIGHT].y, _vertices[BOTTOM_FRONT_RIGHT].z, _vertices[BOTTOM_FRONT_RIGHT].w,
+            _vertices[TOP_FRONT_RIGHT].x, _vertices[TOP_FRONT_RIGHT].y, _vertices[TOP_FRONT_RIGHT].z, _vertices[TOP_FRONT_RIGHT].w,                 
+            _vertices[TOP_BACK_RIGHT].x, _vertices[TOP_BACK_RIGHT].y, _vertices[TOP_BACK_RIGHT].z, _vertices[TOP_BACK_RIGHT].w, 
+            _vertices[BOTTOM_FRONT_RIGHT].x, _vertices[BOTTOM_FRONT_RIGHT].y, _vertices[BOTTOM_FRONT_RIGHT].z, _vertices[BOTTOM_FRONT_RIGHT].w,
+            _vertices[BOTTOM_BACK_RIGHT].x, _vertices[BOTTOM_BACK_RIGHT].y, _vertices[BOTTOM_BACK_RIGHT].z, _vertices[BOTTOM_BACK_RIGHT].w,                 
+            _vertices[TOP_BACK_RIGHT].x, _vertices[TOP_BACK_RIGHT].y, _vertices[TOP_BACK_RIGHT].z, _vertices[TOP_BACK_RIGHT].w,
+
+            //back face
+            _vertices[BOTTOM_BACK_LEFT].x, _vertices[BOTTOM_BACK_LEFT].y, _vertices[BOTTOM_BACK_LEFT].z, _vertices[BOTTOM_BACK_LEFT].w,
+            _vertices[TOP_BACK_LEFT].x, _vertices[TOP_BACK_LEFT].y, _vertices[TOP_BACK_LEFT].z, _vertices[TOP_BACK_LEFT].w,                 
+            _vertices[TOP_BACK_RIGHT].x, _vertices[TOP_BACK_RIGHT].y, _vertices[TOP_BACK_RIGHT].z, _vertices[TOP_BACK_RIGHT].w,             
+            _vertices[BOTTOM_BACK_LEFT].x, _vertices[BOTTOM_BACK_LEFT].y, _vertices[BOTTOM_BACK_LEFT].z, _vertices[BOTTOM_BACK_LEFT].w,      
+            _vertices[BOTTOM_BACK_RIGHT].x, _vertices[BOTTOM_BACK_RIGHT].y, _vertices[BOTTOM_BACK_RIGHT].z, _vertices[BOTTOM_BACK_RIGHT].w,                 
+            _vertices[TOP_BACK_RIGHT].x, _vertices[TOP_BACK_RIGHT].y, _vertices[TOP_BACK_RIGHT].z, _vertices[TOP_BACK_RIGHT].w,        
+
+            //top face
+            _vertices[TOP_FRONT_LEFT].x, _vertices[TOP_FRONT_LEFT].y, _vertices[TOP_FRONT_LEFT].z, _vertices[TOP_FRONT_LEFT].w,
+            _vertices[TOP_BACK_LEFT].x, _vertices[TOP_BACK_LEFT].y, _vertices[TOP_BACK_LEFT].z, _vertices[TOP_BACK_LEFT].w,
+            _vertices[TOP_BACK_RIGHT].x, _vertices[TOP_BACK_RIGHT].y, _vertices[TOP_BACK_RIGHT].z, _vertices[TOP_BACK_RIGHT].w,
+            _vertices[TOP_FRONT_LEFT].x, _vertices[TOP_FRONT_LEFT].y, _vertices[TOP_FRONT_LEFT].z, _vertices[TOP_FRONT_LEFT].w,
+            _vertices[TOP_FRONT_RIGHT].x, _vertices[TOP_FRONT_RIGHT].y, _vertices[TOP_FRONT_RIGHT].z, _vertices[TOP_FRONT_RIGHT].w,
+            _vertices[TOP_BACK_RIGHT].x, _vertices[TOP_BACK_RIGHT].y, _vertices[TOP_BACK_RIGHT].z, _vertices[TOP_BACK_RIGHT].w,
+
+            //bottom face
+            _vertices[BOTTOM_FRONT_LEFT].x, _vertices[BOTTOM_FRONT_LEFT].y, _vertices[BOTTOM_FRONT_LEFT].z, _vertices[BOTTOM_FRONT_LEFT].w,
+            _vertices[BOTTOM_BACK_LEFT].x, _vertices[BOTTOM_BACK_LEFT].y, _vertices[BOTTOM_BACK_LEFT].z, _vertices[BOTTOM_BACK_LEFT].w,
+            _vertices[BOTTOM_BACK_RIGHT].x, _vertices[BOTTOM_BACK_RIGHT].y, _vertices[BOTTOM_BACK_RIGHT].z, _vertices[BOTTOM_BACK_RIGHT].w,
+            _vertices[BOTTOM_FRONT_LEFT].x, _vertices[BOTTOM_FRONT_LEFT].y, _vertices[BOTTOM_FRONT_LEFT].z, _vertices[BOTTOM_FRONT_LEFT].w,
+            _vertices[BOTTOM_FRONT_RIGHT].x, _vertices[BOTTOM_FRONT_RIGHT].y, _vertices[BOTTOM_FRONT_RIGHT].z, _vertices[BOTTOM_FRONT_RIGHT].w,
+            _vertices[BOTTOM_BACK_RIGHT].x, _vertices[BOTTOM_BACK_RIGHT].y, _vertices[BOTTOM_BACK_RIGHT].z, _vertices[BOTTOM_BACK_RIGHT].w
+        };
+        return &triangles[0];
+
+    }
+
+
+
 }

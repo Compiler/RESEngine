@@ -27,6 +27,9 @@ namespace res{
             //return the 8 vertices
             glm::vec4* getVertices(){return _vertices;}
 
+
+            float* getTriangles();
+
             
 
 

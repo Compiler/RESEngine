@@ -34,7 +34,7 @@ LINKS = -lglfw3 -lgdi32 -lopengl32 -lgdi32
 #========================OBJECTS========================#
 IMGUI_OBJS = $(OUT_DIR)/imgui-bin/imgui_impl_glfw.o $(OUT_DIR)/imgui-bin/imgui_impl_opengl3.o $(OUT_DIR)/imgui-bin/imgui.o $(OUT_DIR)/imgui-bin/imgui_demo.o $(OUT_DIR)/imgui-bin/imgui_draw.o $(OUT_DIR)/imgui-bin/imgui_widgets.o 
 CORE_OBJS = $(OUT_DIR)/EngineCore.o 
-SCENESTATE_OBJS = $(OUT_DIR)/Layer.o $(OUT_DIR)/LayerManager.o $(OUT_DIR)/Scene3D.o $(OUT_DIR)/Scene2D.o $(OUT_DIR)/SceneManager.o $(OUT_DIR)/DebugLayer.o 
+SCENESTATE_OBJS = $(OUT_DIR)/Layer.o $(OUT_DIR)/LayerManager.o $(OUT_DIR)/Scene3D.o $(OUT_DIR)/Scene2D.o $(OUT_DIR)/SceneManager.o $(OUT_DIR)/DebugLayer.o  $(OUT_DIR)/BlinnPhongLayer.o 
 STARTUP_OBJS = $(OUT_DIR)/StartupSystem.o 
 RENDERING_OBJS = $(OUT_DIR)/ShaderProgram.o $(OUT_DIR)/Window.o
 FILE_OBJS = $(OUT_DIR)/FileLoaderFactory.o
