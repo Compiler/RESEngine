@@ -64,6 +64,7 @@ namespace res{
     
     void EngineCore::onUnload(){
         UNLOAD_LOG("Unloading Engine...");
+        _sceneManager.onUnload();
 
     }
     

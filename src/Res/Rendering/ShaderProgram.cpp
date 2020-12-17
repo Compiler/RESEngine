@@ -23,7 +23,9 @@ namespace res{
                 if(type == GL_VERTEX_SHADER) shaderType = "VERTEX";
                 else if(type == GL_FRAGMENT_SHADER) shaderType = "FRAGMENT";
                 else if(type == GL_GEOMETRY_SHADER) shaderType = "GEOMETRY";
-                else ERROR("SHADER::%s TYPE_UNKNOWN - TYPE = %d", shaderType.c_str(), type);
+                else{
+					ERROR("SHADER::%s TYPE_UNKNOWN - TYPE = %d", shaderType.c_str(), type);
+				}
 				ERROR("SHADER::%s COMPILATION FAILED - TYPE = %d", shaderType.c_str(), type);
 			}
 		}
@@ -72,8 +74,9 @@ namespace res{
 		//LOG("setting uniform '" << name << "' to value " << value << " at uniform id " << id);
         glUniform1i(id, value);
         GLenum error = glGetError();
-		if(error != GL_NO_ERROR)
+		if(error != GL_NO_ERROR){
 			ERROR("OpenGL Error 'uniform_set1Integer' : %d", error);
+		}
         
     }
 
@@ -81,17 +84,19 @@ namespace res{
   		int id = _check_uniform_(name, true);
         glUniform1fv(id, 1, &value);
         GLenum error = glGetError();
-		if(error != GL_NO_ERROR)
+		if(error != GL_NO_ERROR){
 			ERROR("OpenGL Error 'uniform_set1float' : %d", error);
+		}
 
 	}
 
 	void ShaderProgram::uniform_set1Mat4(const char* name, const float* value){
-  		int id = _check_uniform_(name, true);
+  		int id = _check_uniform_(name, false);
         glUniformMatrix4fv(id, 1, GL_FALSE, value);
         GLenum error = glGetError();
-		//if(error != GL_NO_ERROR)
-			//ERROR("OpenGL Error 'uniform_set1Mat4' : " << error);
+		if(error != GL_NO_ERROR){
+			ERROR("OpenGL Error 'uniform_set1Mat4' : %d", error);
+		}
 
 	}
 

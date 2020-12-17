@@ -17,6 +17,10 @@ namespace res{
     void SceneManager::render(){
         _scenes[_currentScene]->render();
     }
+    void SceneManager::onUnload(){
+        UNLOAD_LOG("Unloading SceneManager");
+        for(auto scene : _scenes)scene->onUnload();
+    }
 
 
     void SceneManager::setCurrentScene(int sceneIndex){

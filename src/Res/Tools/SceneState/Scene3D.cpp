@@ -22,7 +22,8 @@ namespace res{
     }
 
     void Scene3D::onUnload(){
-
+        UNLOAD_LOG("Unloading Scene3D '%s'", m_name);
+        m_layerManager.onUnload();
     }
 
 

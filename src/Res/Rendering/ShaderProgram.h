@@ -23,7 +23,9 @@ namespace res{
 
             int _check_uniform_(const char* name, bool print = true){
                 GLint uniformID = glGetUniformLocation(_shaderProgram, name);
-                if(uniformID == -1 && print) WARN("'%s' name not found in shader.", name);
+                if(uniformID == -1 && print){
+                    WARN("'%s' name not found in shader.", name);
+                }
                 return uniformID;
             }
         public:

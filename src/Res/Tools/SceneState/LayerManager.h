@@ -14,6 +14,7 @@ namespace res{
             void onLoad();
             void update();
             void render();
+            void onUnload();
             template<typename T>
             T* emplaceLayer(){
                 _layers.emplace_back(new T());

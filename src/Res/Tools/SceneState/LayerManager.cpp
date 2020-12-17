@@ -18,6 +18,12 @@ namespace res{
         _layers[_currentLayer]->render();
     }
 
+    void LayerManager::onUnload(){
+        UNLOAD_LOG("Unloading LayerManager");
+        for(auto layer : _layers)layer->onUnload();
+        delete _layers.data();
+    }
+
 
     void LayerManager::setCurrentLayer(int layerIndex){
         if(layerIndex == _currentLayer) return;

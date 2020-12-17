@@ -8,7 +8,9 @@ namespace res { namespace FileLoaderFactory{
         std::ifstream t(fileName);
         std::string str((std::istreambuf_iterator<char>(t)), std::istreambuf_iterator<char>());
         dst = str;
-        if(dst.empty()) WARN("Couldn't open : '%s'", fileName);
+        if(dst.empty()){
+            WARN("Couldn't open : '%s'", fileName);
+        }
     }
 	unsigned char* loadImage(const char name[], int* width, int* height, int* numOfColChannels, int req_comp) {
 		stbi_set_flip_vertically_on_load(true);
