@@ -38,7 +38,8 @@ SCENESTATE_OBJS = $(OUT_DIR)/Layer.o $(OUT_DIR)/LayerManager.o $(OUT_DIR)/Scene3
 STARTUP_OBJS = $(OUT_DIR)/StartupSystem.o 
 RENDERING_OBJS = $(OUT_DIR)/ShaderProgram.o $(OUT_DIR)/Window.o
 FILE_OBJS = $(OUT_DIR)/FileLoaderFactory.o
-OBJS = $(CORE_OBJS) $(ENGINE_CORE_OBJS) $(RENDERING_OBJS) $(FILE_OBJS) $(STARTUP_OBJS) $(SCENESTATE_OBJS) $(IMGUI_OBJS)
+GEOMETRY_OBJECTS = $(OUT_DIR)/Cube.o
+OBJS = $(CORE_OBJS) $(ENGINE_CORE_OBJS) $(RENDERING_OBJS) $(FILE_OBJS) $(STARTUP_OBJS) $(SCENESTATE_OBJS) $(IMGUI_OBJS) $(GEOMETRY_OBJECTS)
 
 
 ALL_SETTINGS = $(CXX) $(CXXFLAGS) $(LIBS) $(INC)  
@@ -69,6 +70,9 @@ $(CORE_OBJS): $(OUT_DIR)/%.o: src/Res/Cores/%.cpp
 	$(ALL_SETTINGS) -c $< -o $@  
 
 $(RENDERING_OBJS): $(OUT_DIR)/%.o: src/Res/Rendering/%.cpp
+	$(ALL_SETTINGS) -c $< -o $@  
+
+$(GEOMETRY_OBJECTS): $(OUT_DIR)/%.o: src/Res/Rendering/Geometry/%.cpp
 	$(ALL_SETTINGS) -c $< -o $@  
 
 $(FILE_OBJS): $(OUT_DIR)/%.o: src/Res/Tools/Files/%.cpp
