@@ -13,7 +13,7 @@ namespace res{
 
         auto scene = _sceneManager.emplaceScene<Scene3D>("Blinn-Phong");
         scene->getLayerManager().emplaceLayer<BlinnPhongLayer>("S1L1");
-        scene->setClearColor(0.45f, 0.55f, 0.60f, 1.00f);
+        scene->setClearColor(0.15f, 0.15f, 0.15f, 1.00f);
         auto scene2 = _sceneManager.emplaceScene<Scene3D>("Ray tracing");
         scene2->getLayerManager().emplaceLayer<DebugLayer>("S2L1");
         scene2->setClearColor(0.25f, 0.55f, 0.60f, 1.00f);
