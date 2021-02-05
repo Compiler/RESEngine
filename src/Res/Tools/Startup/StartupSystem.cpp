@@ -12,6 +12,7 @@ namespace res{
 		glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 		glfwWindowHint(GLFW_RESIZABLE, GL_TRUE);
 		glfwWindowHint(GLFW_OPENGL_DEBUG_CONTEXT, true); 
+
 		//glfwWindowHint( GLFW_DOUBLEBUFFER, GL_FALSE );
 		glfwSwapInterval( 0 );
 
@@ -24,6 +25,8 @@ namespace res{
 
 		glEnable(GL_BLEND); 
 		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA); 
+		glEnable(GL_CULL_FACE);
+		glCullFace(GL_FRONT);
 	
 
 	}
