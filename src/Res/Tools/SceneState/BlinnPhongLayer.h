@@ -15,7 +15,7 @@ namespace res{
         private:
             ShaderProgram _shader;
             uint32_t _bufferID, _vertexArrayID;
-            glm::mat4 trans = glm::mat4(1.0f);
+            glm::mat4 trans;
 
         public:
             BlinnPhongLayer();

@@ -7,7 +7,7 @@ namespace res{
         _window = new res::Window(1920, 1080, "Research Engine");
         res::StartupSystem::_initGlad();
         res::StartupSystem::_initImGUI(_window->getWindow());
-		_window->setPosition(2560, 360);
+		//_window->setPosition(2560, 360);
 		glfwMakeContextCurrent( _window->getWindow() );
 
 
