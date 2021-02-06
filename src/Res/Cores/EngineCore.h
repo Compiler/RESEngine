@@ -8,6 +8,8 @@
 #include <Res/Tools/SceneState/DebugLayer.h>
 #include <Res/Tools/SceneState/BlinnPhongLayer.h>
 #include <Res/Tools/SceneState/SceneManager.h>
+#include <Res/Tools/Input/InputManager.h>
+#include <Res/Tools/Input/GLFWCallbacks.h>
 #include <imgui/imgui.h>
 
 namespace res{

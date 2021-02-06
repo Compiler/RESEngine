@@ -1,7 +1,7 @@
 #pragma once
 #include <stdint.h>
 
-namespace Res {
+namespace res {
 	namespace MouseKeys {
 		constexpr uint32_t MOUSE_BUTTON_1 = 0;
 		constexpr uint32_t MOUSE_BUTTON_2 = 1;

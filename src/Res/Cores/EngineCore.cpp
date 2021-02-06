@@ -7,7 +7,8 @@ namespace res{
         _window = new res::Window(1920, 1080, "Research Engine");
         res::StartupSystem::_initGlad();
         res::StartupSystem::_initImGUI(_window->getWindow());
-		//_window->setPosition(2560, 360);
+        GLFWCallbacks::initCallBacks(_window);
+		_window->setPosition(2560, 360);
 		glfwMakeContextCurrent( _window->getWindow() );
 
 
@@ -29,7 +30,8 @@ namespace res{
         #ifdef DEBUG_MODE
         _window->setTitle(std::string("Research Engine - fps " + std::to_string((int)res::CUR_FPS) + " - ms " + std::to_string(res::DELTA_TIME)).c_str());
         #endif
-
+        
+        InputManager::clear();
         glfwPollEvents();
 
     }
