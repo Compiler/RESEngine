@@ -20,6 +20,7 @@ namespace res{
             uint32_t _bufferID, _vertexArrayID;
             glm::mat4 trans;
             float yAxis, xAxis, zAxis;
+            float xPos, yPos = 1, zPos = -2;
 
         public:
             BlinnPhongLayer();

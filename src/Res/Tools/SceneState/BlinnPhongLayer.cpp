@@ -77,7 +77,6 @@ namespace res{
 
     } 
 
-    float yPos = 1, zPos = -2;
     void BlinnPhongLayer::update(){
         if(res::InputManager::isKeyPressed(KeyCodes::KEY_UP)) yAxis += 1.01f * res::DELTA_TIME;
         if(res::InputManager::isKeyPressed(KeyCodes::KEY_DOWN)) yAxis -= 1.01f * res::DELTA_TIME;
@@ -94,7 +93,10 @@ namespace res{
     void BlinnPhongLayer::render(){
         static float elapsed = 0;
         static float count = 0;
+        static float smoothStep = 0.0f;
+        smoothStep += res::DELTA_TIME;
         elapsed += res::DELTA_TIME;
+        xPos = sin(smoothStep) * 1.0f;
         if(elapsed > 1){
             count++;
             elapsed = 0;
@@ -104,7 +106,7 @@ namespace res{
 
         _shader.use();
         _shader.uniform_set1Mat4("u_transform", &trans[0][0]);
-        _shader.uniform_set1Float("ux", 0);
+        _shader.uniform_set1Float("ux", xPos);
         _shader.uniform_set1Float("uy", yPos);
         _shader.uniform_set1Float("uz", zPos);
         glBindVertexArray(_vertexArrayID);
