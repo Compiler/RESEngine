@@ -4,12 +4,15 @@ in vec4 oNormal;
 in vec3 oFragPos;
 
 out vec4 FragColor;
+
+uniform float ux, uy, uz;
+
 void main(){
 
     vec3 lightColor = vec3(1);
-    vec3 lightPos = vec3(0, 2, 0);
+    vec3 lightPos = vec3(ux, uy, uz);
      // ambient
-    float ambientStrength = 0.25;
+    float ambientStrength = 0.05;
     vec3 ambient = ambientStrength * lightColor;
   	
     // diffuse 

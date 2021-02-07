@@ -14,7 +14,7 @@ out vec3 oFragPos;
 
 void main(){
     gl_Position = u_transform * aPos;
-    oFragPos = (u_transform * aPos).xyz;
+    oFragPos = gl_Position.xyz;
     oColor = aColor;
     oNormal = aNormal;
 

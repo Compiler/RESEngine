@@ -2,6 +2,9 @@
 #include <Res/res.h>
 #include <Res/Tools/SceneState/Layer.h>
 #include <Res/Rendering/ShaderProgram.h>
+#include <Res/Rendering/Geometry/Cube.h>
+#include <Res/Tools/Input/InputManager.h>
+#include <Res/Tools/Logging/FastLogger.h>
 
 
 
@@ -16,6 +19,7 @@ namespace res{
             ShaderProgram _shader;
             uint32_t _bufferID, _vertexArrayID;
             glm::mat4 trans;
+            float yAxis, xAxis, zAxis;
 
         public:
             BlinnPhongLayer();
