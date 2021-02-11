@@ -2,5 +2,7 @@ bin/*
 bin
 imgui-bin
 imgui-bin/*
-vscode
-vscode/*
+.vscode
+/.vscode
+.vscode/*
+/.vscode/*
