@@ -5,6 +5,7 @@
 #include <Res/Rendering/Geometry/Cube.h>
 #include <Res/Tools/Input/InputManager.h>
 #include <Res/Tools/Logging/FastLogger.h>
+#include <Res/Rendering/RenderingScenes/SceneVerticeTuples.h>
 
 
 

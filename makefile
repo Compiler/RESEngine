@@ -32,15 +32,16 @@ LIBS = -L $(GLFW_LIB)
 LINKS = -lglfw3 -lgdi32 -lopengl32 -lgdi32 -lstdc++
 
 #========================OBJECTS========================#
-IMGUI_OBJS = $(OUT_DIR)/imgui-bin/imgui_impl_glfw.o $(OUT_DIR)/imgui-bin/imgui_impl_opengl3.o $(OUT_DIR)/imgui-bin/imgui.o $(OUT_DIR)/imgui-bin/imgui_demo.o $(OUT_DIR)/imgui-bin/imgui_draw.o $(OUT_DIR)/imgui-bin/imgui_widgets.o 
+IMGUI_OBJS = imgui-bin/imgui_impl_glfw.o imgui-bin/imgui_impl_opengl3.o imgui-bin/imgui.o imgui-bin/imgui_demo.o imgui-bin/imgui_draw.o imgui-bin/imgui_widgets.o 
 CORE_OBJS = $(OUT_DIR)/EngineCore.o 
+RENDERING_SCENE_OBJS = $(OUT_DIR)/SceneVerticeTuples.o 
 INPUT_OBJS = $(OUT_DIR)/InputManager.o $(OUT_DIR)/GLFWCallbacks.o 
 SCENESTATE_OBJS = $(OUT_DIR)/Layer.o $(OUT_DIR)/LayerManager.o $(OUT_DIR)/Scene3D.o $(OUT_DIR)/Scene2D.o $(OUT_DIR)/SceneManager.o $(OUT_DIR)/DebugLayer.o  $(OUT_DIR)/BlinnPhongLayer.o 
 STARTUP_OBJS = $(OUT_DIR)/StartupSystem.o 
 RENDERING_OBJS = $(OUT_DIR)/ShaderProgram.o $(OUT_DIR)/Window.o
 FILE_OBJS = $(OUT_DIR)/FileLoaderFactory.o
 GEOMETRY_OBJECTS = $(OUT_DIR)/Cube.o
-OBJS = $(CORE_OBJS) $(ENGINE_CORE_OBJS) $(RENDERING_OBJS) $(FILE_OBJS) $(STARTUP_OBJS) $(SCENESTATE_OBJS) $(IMGUI_OBJS) $(GEOMETRY_OBJECTS) $(INPUT_OBJS)
+OBJS = $(CORE_OBJS) $(ENGINE_CORE_OBJS) $(RENDERING_OBJS) $(FILE_OBJS) $(STARTUP_OBJS) $(SCENESTATE_OBJS) $(IMGUI_OBJS) $(GEOMETRY_OBJECTS) $(INPUT_OBJS) $(RENDERING_SCENE_OBJS)
 
 
 ALL_SETTINGS = $(CXX) $(CXXFLAGS) $(LIBS) $(INC)  
@@ -82,13 +83,17 @@ $(FILE_OBJS): $(OUT_DIR)/%.o: src/Res/Tools/Files/%.cpp
 $(STARTUP_OBJS): $(OUT_DIR)/%.o: src/Res/Tools/Startup/%.cpp
 	$(ALL_SETTINGS) -c $< -o $@  
 
+$(RENDERING_SCENE_OBJS): $(OUT_DIR)/%.o: src/Res/Rendering/RenderingScenes/%.cpp
+	$(ALL_SETTINGS) -c $< -o $@  
+
+
 $(SCENESTATE_OBJS): $(OUT_DIR)/%.o: src/Res/Tools/SceneState/%.cpp
 	$(ALL_SETTINGS) -c $< -o $@ 
 
 $(INPUT_OBJS): $(OUT_DIR)/%.o: src/Res/Tools/Input/%.cpp
 	$(ALL_SETTINGS) -c $< -o $@  
 
-$(IMGUI_OBJS): $(OUT_DIR)/imgui-bin/%.o: extern/imgui/imgui/%.cpp
+$(IMGUI_OBJS): imgui-bin/%.o: extern/imgui/imgui/%.cpp
 	$(ALL_SETTINGS) -c $< -o $@  
 
   

@@ -57,8 +57,7 @@ namespace res {
 			_mouseReleaseEvents.clear();
 		}
 
-		inline static bool isKeyPressed(uint16_t key) {
-			for (int i = 0; i < _keyPressedEvents.size(); i++)
+		inline static bool isKeyPressed(uint16_t key) {			for (int i = 0; i < _keyPressedEvents.size(); i++)
 				if (_keyPressedEvents[i] == key)
 					return true;
 			return false;

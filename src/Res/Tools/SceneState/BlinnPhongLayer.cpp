@@ -57,9 +57,11 @@ namespace res{
         glGenVertexArrays(1, &_vertexArrayID); 
         glBindVertexArray(_vertexArrayID);
 
+    
+        SceneVerticeTuples tuple;
         glGenBuffers(1, &_bufferID);
         glBindBuffer(GL_ARRAY_BUFFER, _bufferID);
-        glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+        glBufferData(GL_ARRAY_BUFFER, sizeof(tuple.cube_plane_scene), tuple.cube_plane_scene, GL_STATIC_DRAW);
 
         glEnableVertexAttribArray(0);  
         glEnableVertexAttribArray(1);  
@@ -110,7 +112,7 @@ namespace res{
         _shader.uniform_set1Float("uy", yPos);
         _shader.uniform_set1Float("uz", zPos);
         glBindVertexArray(_vertexArrayID);
-        glDrawArrays(GL_TRIANGLES, 0, 36);
+        glDrawArrays(GL_TRIANGLES, 0, 42);
 
     }
 
